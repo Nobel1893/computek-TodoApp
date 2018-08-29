@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cls.com.todoapp">
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -23,6 +24,14 @@
             android:name=".AddTodo"
             android:label="@string/title_activity_add_todo"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <receiver android:name=".Recievers.AirPlaneModeReciever">
+            <intent-filter >
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".Recievers.AlarmReciever"/>
     </application>
 
 </manifest>
